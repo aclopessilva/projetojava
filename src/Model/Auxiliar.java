@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
-import java.util.logging.Level;
+import java.util.List;
 
 /**
  *
@@ -58,11 +58,14 @@ public class Auxiliar {
         Auxiliar.fila.add(y);
     }
     
-    static public void iniciaVagas(){
+    static public List<Vaga> iniciaVagas(){
+        
+        List<Vaga> vagas =  new ArrayList<Vaga>();
+        
         int i = 0;
         String z = "";
-        Vaga x = new Vaga();
         for(i = 0; i < 100; i++){
+            Vaga x = new Vaga();
             x.setNumero(i + 1);
              switch (i / 10){
                 case 0:
@@ -114,10 +117,19 @@ public class Auxiliar {
             }else{
                 x.setPreco(8.00);
             }
-            x.adiciona(x);
+            
+            
+            Vaga vaga  = x.consulta(x);
+            if(vaga== null){
+                x.adiciona(x);
+                vaga  = x.consulta(x);
+            }
+            
             Auxiliar.qntVagas++;
-  
+            vagas.add(vaga);
         }
+        
+        return vagas;
     }
     
     

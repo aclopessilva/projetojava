@@ -6,8 +6,10 @@
 package Controller;
 
 import Model.Auxiliar;
+import Model.Estacionamento;
 import Model.Operador;
 import View.LoginView;
+import controller.EstacionamentoControl;
 import controller.OperadorControl;
 import java.util.ArrayList;
 
@@ -18,9 +20,40 @@ import java.util.ArrayList;
 public class Principal {
 
     public static void main(String args[]) {
+ 
+        EstacionamentoControl estacionamentoController = new EstacionamentoControl();
 
-//        VeiculoView login = new VeiculoView();
-//        login.setVisible(true);
+        ArrayList<String> estacionamentoVariaveis = new ArrayList<String>();
+         
+//        this.variaveis.setRazaoSocial(vetor.get(0));
+//        this.variaveis.setNomeFantasia(vetor.get(1));
+//        this.variaveis.setEndereco(vetor.get(2));
+//        this.variaveis.setTelefone(Integer.parseInt(vetor.get(3)));
+//        this.variaveis.setCidade(vetor.get(4));
+//        this.variaveis.setEstado(vetor.get(5));
+//        this.variaveis.setInscricaoEstadual(Integer.parseInt(vetor.get(6)));
+//        this.variaveis.setCnpj(Integer.parseInt(vetor.get(7)));
+//        this.variaveis.setQntdVagas(Integer.parseInt(vetor.get(8)));
+        
+        estacionamentoVariaveis.add("Estacionamento IFSP"); //nome
+        estacionamentoVariaveis.add("Estacionamento IFSP");
+        estacionamentoVariaveis.add("IFSP  92929");
+        estacionamentoVariaveis.add("12312312");
+        estacionamentoVariaveis.add("SP");
+        estacionamentoVariaveis.add("SP");
+        estacionamentoVariaveis.add("12312312");
+        estacionamentoVariaveis.add("12312312");
+        estacionamentoVariaveis.add("100"); 
+        
+        //Consulta na tabela se existe uma pessoa com o nome indicado ver Estacionamento ->consulta
+        Estacionamento estacionamento = estacionamentoController.consulta(estacionamentoVariaveis);
+        if (estacionamento == null) {  
+            estacionamentoController.adiciona(estacionamentoVariaveis);
+            estacionamento = estacionamentoController.consulta(estacionamentoVariaveis);
+            estacionamento.setVagas(Auxiliar.iniciaVagas());
+            estacionamentoController.update(estacionamento);
+        }
+        
         OperadorControl controller = new OperadorControl();
 
         ArrayList<String> variaveis = new ArrayList<String>();

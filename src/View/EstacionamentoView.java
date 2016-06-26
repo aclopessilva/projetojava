@@ -6,9 +6,9 @@
 
 package View;
 
+import Model.Auxiliar;
 import controller.EstacionamentoControl;
 import Model.Estacionamento;
-import dao.EstacionamentoDao;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -23,6 +23,14 @@ public class EstacionamentoView extends javax.swing.JFrame {
      */
     public EstacionamentoView() {
         initComponents();
+        
+        
+//           EstacionamentoControl control = new EstacionamentoControl();
+//         ArrayList<String> variaveis = new ArrayList<String>();
+//           variaveis.add("");//
+//           variaveis.add("");//
+//           control.consulta(vetor);
+           
     }
 
     /**
@@ -80,6 +88,12 @@ public class EstacionamentoView extends javax.swing.JFrame {
         jLabel9.setText("Quantidade de vagas:");
 
         jLabel10.setText("Inserção - ESTACIONAMENTO");
+
+        jtNomeFantasia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtNomeFantasiaActionPerformed(evt);
+            }
+        });
 
         jLabel11.setText("Estado");
 
@@ -400,6 +414,10 @@ if(jtInscEstadual.getText().isEmpty()){
         
         
     }//GEN-LAST:event_jtConsultaActionPerformed
+
+    private void jtNomeFantasiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNomeFantasiaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtNomeFantasiaActionPerformed
 
     /**
      * @param args the command line arguments

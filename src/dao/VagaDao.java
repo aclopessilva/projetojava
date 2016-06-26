@@ -100,7 +100,7 @@ public class VagaDao {
             //faz a busca com base no nome sem case sensitive
             //add cria as restrição no criteria 
             //método add do critéria é para montar as restrições 
-            crit.add(Restrictions.ilike("numero", String.valueOf(variavel.getNumero()), MatchMode.EXACT));
+            crit.add(Restrictions.eq("numero",  variavel.getNumero() ));
             //garante o retorno de apenas 1 registro
             //ilike não é case sensitive
             crit.setMaxResults(1);

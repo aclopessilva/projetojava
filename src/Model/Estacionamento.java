@@ -36,7 +36,9 @@ public class Estacionamento {
     @OneToMany(cascade = CascadeType.ALL)
 // @JoinTable(name="COUNTRY_STATE",joinColumns={@JoinColumn(name="Country_Name")},inverseJoinColumns={@JoinColumn(name="State_Name")})  
     private Collection<Vaga> vagas = new ArrayList<Vaga>();
-
+ 
+    
+    
     public String getRazaoSocial() {
         return razaoSocial;
     }

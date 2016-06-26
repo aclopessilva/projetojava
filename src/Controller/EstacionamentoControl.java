@@ -8,6 +8,7 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 import Model.Estacionamento;
+import Model.Vaga;
 import javax.swing.JOptionPane;
 
 
@@ -92,5 +93,13 @@ public class EstacionamentoControl {
                 throw new RuntimeException(u);
             }
         }
+ 
+
+    public void update(Estacionamento estacionamento) {
+        try{ 
+            this.variaveis.adiciona(estacionamento);
+        }catch(Exception u){
+            throw new RuntimeException(u);
+        }}
     
 }
