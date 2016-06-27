@@ -119,7 +119,8 @@ public class Veiculo {
     }
 
     public List<Veiculo> Lista() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        VeiculoDao banco = new VeiculoDao();
+        return banco.Lista();
     }
 
 }

@@ -4,6 +4,7 @@ import java.beans.Expression;
 import static java.lang.Math.E;
 import java.util.List;
 import Model.Estacionamento;
+import Utils.HibernateUtils;
 import javax.swing.JOptionPane;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -17,17 +18,14 @@ import org.hibernate.criterion.Restrictions;
 
 public class EstacionamentoDao {
 
-    private final SessionFactory conexao;
-
     public EstacionamentoDao() {
-        conexao = new Configuration().configure().buildSessionFactory();
     }
 
     public boolean adiciona(Estacionamento variavel) {
         try {
-            Session sec = conexao.openSession();// abre uma conexao 
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
-         //adiciona o novo registro no banco INSERT
+            //adiciona o novo registro no banco INSERT
 
             sec.save(variavel);
             tx.commit();
@@ -40,7 +38,7 @@ public class EstacionamentoDao {
 
     public Estacionamento atualiza(Estacionamento variavel) {
         try {
-            Session sec = conexao.openSession();
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
             //carrega usuario do BD
             Estacionamento variavelBanco = (Estacionamento) sec.load(Estacionamento.class, variavel.getCnpj());
@@ -59,7 +57,7 @@ public class EstacionamentoDao {
     public boolean deletar(Estacionamento variavel) {
         boolean deletou = false;
         try {
-            Session sec = conexao.openSession();
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
             //carrega usuario do BD
             Estacionamento variavelBanco = (Estacionamento) sec.load(Estacionamento.class, variavel.getInscricaoEstadual());
@@ -78,7 +76,7 @@ public class EstacionamentoDao {
 
     public List<Estacionamento> Lista() {
         try {
-            Session sec = conexao.openSession();
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
             List<Estacionamento> variavelTabela;
             //retorna todos os registros da tabela usuario e insere em uma lista de objetos
@@ -93,14 +91,36 @@ public class EstacionamentoDao {
 
     public Estacionamento consulta(Estacionamento variavel) {//traz um único objeto
         try {
-            Session sec = conexao.openSession();
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
             Criteria crit = sec.createCriteria(Estacionamento.class);
-         //faz a busca com base no nome sem case sensitive
+            //faz a busca com base no nome sem case sensitive
             //add cria as restrição no criteria 
             //método add do critéria é para montar as restrições 
             crit.add(Restrictions.ilike("nomeFantasia", variavel.getNomeFantasia(), MatchMode.EXACT));
-         //garante o retorno de apenas 1 registro
+            //garante o retorno de apenas 1 registro
+            //ilike não é case sensitive
+            crit.setMaxResults(1);
+            Estacionamento estacionamento = (Estacionamento) crit.uniqueResult();
+            tx.commit();
+            sec.close();
+
+            return estacionamento;
+        } catch (HibernateException u) {
+            throw new RuntimeException(u);
+        }
+    }
+
+    public Estacionamento consultaId(int cnpj) {//traz um único objeto
+        try {
+            Session sec = HibernateUtils.getSessionFactory().openSession();
+            Transaction tx = sec.beginTransaction();
+            Criteria crit = sec.createCriteria(Estacionamento.class);
+            //faz a busca com base no nome sem case sensitive
+            //add cria as restrição no criteria 
+            //método add do critéria é para montar as restrições 
+            crit.add(Restrictions.eq("cnpj", cnpj));
+            //garante o retorno de apenas 1 registro
             //ilike não é case sensitive
             crit.setMaxResults(1);
             Estacionamento estacionamento = (Estacionamento) crit.uniqueResult();

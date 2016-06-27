@@ -10,6 +10,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -25,6 +26,16 @@ public class Vaga {
     private String localizacao;
     private boolean status;
     private double preco;
+    @ManyToOne
+    private Estacionamento estacionamento;
+
+    public Estacionamento getEstacionamento() {
+        return estacionamento;
+    }
+
+    public void setEstacionamento(Estacionamento estacionamento) {
+        this.estacionamento = estacionamento;
+    }
 
     public int getNumero() {
         return numero;
@@ -93,7 +104,7 @@ public class Vaga {
             throw new RuntimeException(x);
         }
     }
-    
+
     public Vaga consultaId(int idVaga) {
         try {
             VagaDao banco = new VagaDao();
@@ -103,8 +114,13 @@ public class Vaga {
         }
     }
 
+    /**
+     * Todas as Vagas
+     * @return 
+     */
     public List<Vaga> Lista() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            VagaDao banco = new VagaDao();
+            return banco.Lista();
     }
 
     /**

@@ -5,8 +5,10 @@
  */
 package Model;
 
+import dao.ClienteDao;
 import dao.MensalistaDao;
 import java.util.GregorianCalendar;
+import java.util.List;
 import javax.persistence.DiscriminatorValue;
 
 //import dao.MensalistaDao;
@@ -90,4 +92,10 @@ public class Mensalista extends Cliente {
     public void extrato() {
 
     } 
+    
+    @Override
+    public List<Cliente> Lista() {
+        ClienteDao banco = new ClienteDao();
+        return banco.ListaMensalista();
+    }
 }

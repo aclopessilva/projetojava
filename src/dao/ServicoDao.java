@@ -1,30 +1,24 @@
 
 package dao;
-import java.beans.Expression;
-import static java.lang.Math.E;
 import java.util.List;
 import Model.Servico;
+import Utils.HibernateUtils;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
       
 public class ServicoDao {
+     
     
-    private final SessionFactory conexao;
-    
-    public ServicoDao(){
-        conexao = new Configuration().configure().buildSessionFactory();
+    public ServicoDao(){ 
     }
  
  public boolean adiciona(Servico variavel){
      try{
-         Session sec = conexao.openSession();// abre uma conexao 
+         Session sec = HibernateUtils.getSessionFactory().openSession();// abre uma conexao 
          Transaction tx = sec.beginTransaction();
          //adiciona o novo registro no banco INSERT
          
@@ -40,7 +34,7 @@ public class ServicoDao {
  
  public Servico atualiza(Servico x){
     try{
-        Session sec = conexao.openSession();
+        Session sec = HibernateUtils.getSessionFactory().openSession();
         Transaction tx = sec.beginTransaction();
         //carrega usuario do BD
         Servico variavelBanco = (Servico)sec.load(Servico.class, String.valueOf(x.getIdServico()));
@@ -64,7 +58,7 @@ public class ServicoDao {
  public boolean deletar(Servico x){
      boolean deletou = false;
      try{
-     Session sec = conexao.openSession();
+     Session sec = HibernateUtils.getSessionFactory().openSession();
      Transaction tx = sec.beginTransaction();
      //carrega usuario do BD
      Servico variavelBanco = (Servico)sec.load(Servico.class, x.getIdServico());
@@ -84,7 +78,7 @@ public class ServicoDao {
  
  public List<Servico>Lista(){
     try{
-        Session sec=conexao.openSession();
+        Session sec=HibernateUtils.getSessionFactory().openSession();
         Transaction tx = sec.beginTransaction();
         List<Servico>variavelTabela;
         //retorna todos os registros da tabela usuario e insere em uma lista de objetos
@@ -100,7 +94,7 @@ public class ServicoDao {
    
  public Servico consulta(Servico x){//traz um único objeto
      try{
-         Session sec = conexao.openSession();
+         Session sec = HibernateUtils.getSessionFactory().openSession();
          Transaction tx = sec.beginTransaction();
          Criteria crit = sec.createCriteria(Servico.class);
          //faz a busca com base no nome sem case sensitive

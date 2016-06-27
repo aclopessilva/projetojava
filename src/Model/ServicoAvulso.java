@@ -207,7 +207,8 @@ public class ServicoAvulso {
     }
 
     public List<ServicoAvulso> Lista() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            ServicoAvulsoDao banco = new ServicoAvulsoDao();
+            return banco.Lista();
     }
 
     /**

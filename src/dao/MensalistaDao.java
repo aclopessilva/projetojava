@@ -4,6 +4,7 @@ import java.beans.Expression;
 import static java.lang.Math.E;
 import java.util.List;
 import Model.Mensalista;
+import Utils.HibernateUtils;
 import javax.swing.JOptionPane;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -16,16 +17,14 @@ import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
 public class MensalistaDao {
+ 
 
-    private final SessionFactory conexao;
-
-    public MensalistaDao() {
-        conexao = new Configuration().configure().buildSessionFactory();
+    public MensalistaDao() { 
     }
 
     public boolean adiciona(Mensalista variavel) {
         try {
-            Session sec = conexao.openSession();// abre uma conexao 
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
          //adiciona o novo registro no banco INSERT
 
@@ -40,7 +39,7 @@ public class MensalistaDao {
 
     public Mensalista atualiza(Mensalista variavel) {
         try {
-            Session sec = conexao.openSession();
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
             //carrega usuario do BD
             Mensalista variavelBanco = (Mensalista) sec.load(Mensalista.class, variavel.getIdPessoa());
@@ -59,7 +58,7 @@ public class MensalistaDao {
     public boolean deletar(Mensalista variavel) {
         boolean deletou = false;
         try {
-            Session sec = conexao.openSession();
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
             //carrega usuario do BD
             Mensalista variavelBanco = (Mensalista) sec.load(Mensalista.class,  variavel.getIdPessoa());
@@ -78,7 +77,7 @@ public class MensalistaDao {
 
     public List<Mensalista> Lista() {
         try {
-            Session sec = conexao.openSession();
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
             List<Mensalista> variavelTabela;
             //retorna todos os registros da tabela usuario e insere em uma lista de objetos
@@ -93,7 +92,7 @@ public class MensalistaDao {
 
     public Mensalista consulta(Mensalista variavel) {//traz um único objeto
         try {
-            Session sec = conexao.openSession();
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
             Criteria crit = sec.createCriteria(Mensalista.class);
          //faz a busca com base no nome sem case sensitive

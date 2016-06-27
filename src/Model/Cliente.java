@@ -94,6 +94,7 @@ public class Cliente extends Pessoa {
     }
 
     public List<Cliente> Lista() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ClienteDao banco = new ClienteDao();
+        return banco.Lista();
     }
 }

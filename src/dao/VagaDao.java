@@ -1,30 +1,23 @@
 package dao;
 
-import java.beans.Expression;
-import static java.lang.Math.E;
+import Utils.HibernateUtils; 
 import java.util.List;
 import Model.Vaga;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
 public class VagaDao {
+ 
 
-    private final SessionFactory conexao;
-
-    public VagaDao() {
-        conexao = new Configuration().configure().buildSessionFactory();
+    public VagaDao() { 
     }
 
     public boolean adiciona(Vaga variavel) {
         try {
-            Session sec = conexao.openSession();// abre uma conexao 
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
             //adiciona o novo registro no banco INSERT
 
@@ -39,7 +32,7 @@ public class VagaDao {
 
     public Vaga atualiza(Vaga variavel) {
         try {
-            Session sec = conexao.openSession();
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
             //carrega usuario do BD
             Vaga variavelBanco = (Vaga) sec.load(Vaga.class, variavel.getNumero());
@@ -60,7 +53,7 @@ public class VagaDao {
     public boolean deletar(Vaga variavel) {
         boolean deletou = false;
         try {
-            Session sec = conexao.openSession();
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
             //carrega usuario do BD
             Vaga variavelBanco = (Vaga) sec.load(Vaga.class, variavel.getNumero());
@@ -79,7 +72,7 @@ public class VagaDao {
 
     public List<Vaga> Lista() {
         try {
-            Session sec = conexao.openSession();
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
             List<Vaga> variavelTabela;
             //retorna todos os registros da tabela usuario e insere em uma lista de objetos
@@ -94,7 +87,7 @@ public class VagaDao {
 
     public Vaga consulta(Vaga variavel) {//traz um único objeto
         try {
-            Session sec = conexao.openSession();
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
             Criteria crit = sec.createCriteria(Vaga.class);
             //faz a busca com base no nome sem case sensitive
@@ -116,7 +109,7 @@ public class VagaDao {
 
     public Vaga consultaId(int idVaga) {//traz um único objeto
         try {
-            Session sec = conexao.openSession();
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
 
             Vaga usuario = (Vaga) sec.get(Vaga.class, idVaga);

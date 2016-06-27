@@ -2,27 +2,24 @@ package dao;
 
 import java.util.List;
 import Model.ServicoAvulso;
+import Utils.HibernateUtils;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
 public class ServicoAvulsoDao {
+ 
 
-    private final SessionFactory conexao;
-
-    public ServicoAvulsoDao() {
-        conexao = new Configuration().configure().buildSessionFactory();
+    public ServicoAvulsoDao() { 
     }
 
     public boolean adiciona(ServicoAvulso variavel) {
         try {
             //Hibernate
-            Session sec = conexao.openSession();// abre uma conexao 
+            Session sec = HibernateUtils.getSessionFactory().openSession();// abre uma conexao 
             Transaction tx = sec.beginTransaction();
             //adiciona o novo registro no banco INSERT            
             sec.save(variavel);
@@ -36,7 +33,7 @@ public class ServicoAvulsoDao {
 
     public ServicoAvulso atualiza(ServicoAvulso x) {
         try {
-            Session sec = conexao.openSession();
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
             //carrega usuario do BD
             ServicoAvulso variavelBanco = (ServicoAvulso) sec.load(ServicoAvulso.class, String.valueOf(x.getIdServicoAvulso()));
@@ -59,7 +56,7 @@ public class ServicoAvulsoDao {
     public boolean deletar(ServicoAvulso x) {
         boolean deletou = false;
         try {
-            Session sec = conexao.openSession();
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
             //carrega usuario do BD
             ServicoAvulso variavelBanco = (ServicoAvulso) sec.load(ServicoAvulso.class, x.getIdServicoAvulso());
@@ -78,7 +75,7 @@ public class ServicoAvulsoDao {
 
     public List<ServicoAvulso> Lista() {
         try {
-            Session sec = conexao.openSession();
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
             List<ServicoAvulso> variavelTabela;
             //retorna todos os registros da tabela usuario e insere em uma lista de objetos
@@ -93,7 +90,7 @@ public class ServicoAvulsoDao {
 
     public ServicoAvulso consulta(ServicoAvulso x) {//traz um único objeto
         try {
-            Session sec = conexao.openSession();
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
             Criteria crit = sec.createCriteria(ServicoAvulso.class);
             //faz a busca com base no nome sem case sensitive

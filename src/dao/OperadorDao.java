@@ -4,6 +4,7 @@ import java.beans.Expression;
 import static java.lang.Math.E;
 import java.util.List;
 import Model.Operador;
+import Utils.HibernateUtils;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -15,16 +16,14 @@ import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
 public class OperadorDao {
+ 
 
-    private final SessionFactory conexao;
-
-    public OperadorDao() {
-        conexao = new Configuration().configure().buildSessionFactory();
+    public OperadorDao() { 
     }
 
     public boolean adiciona(Operador variavel) {
         try {
-            Session sec = conexao.openSession();// abre uma conexao 
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
             //adiciona o novo registro no banco INSERT
 
@@ -39,7 +38,7 @@ public class OperadorDao {
 
     public Operador atualiza(Operador variavel) {
         try {
-            Session sec = conexao.openSession();
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
             //carrega usuario do BD
             Operador variavelBanco = (Operador) sec.load(Operador.class, variavel.getIdPessoa());
@@ -59,7 +58,7 @@ public class OperadorDao {
     public boolean deletar(Operador variavel) {
         boolean deletou = false;
         try {
-            Session sec = conexao.openSession();
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
             //carrega usuario do BD
             Operador variavelBanco = (Operador) sec.load(Operador.class, variavel.getIdPessoa());
@@ -78,7 +77,7 @@ public class OperadorDao {
 
     public List<Operador> Lista() {
         try {
-            Session sec = conexao.openSession();
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
             List<Operador> variavelTabela;
             //retorna todos os registros da tabela usuario e insere em uma lista de objetos
@@ -93,7 +92,7 @@ public class OperadorDao {
 
     public Operador consulta(Operador variavel) {//traz um único objeto
         try {
-            Session sec = conexao.openSession();
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
             Criteria crit = sec.createCriteria(Operador.class);
             //faz a busca com base no nome sem case sensitive
@@ -115,7 +114,7 @@ public class OperadorDao {
 
     public boolean login(String login, String senha) {
         try {
-            Session sec = conexao.openSession();
+            Session sec = HibernateUtils.getSessionFactory().openSession();
             Transaction tx = sec.beginTransaction();
             Criteria crit = sec.createCriteria(Operador.class);
             //faz a busca com base no nome sem case sensitive

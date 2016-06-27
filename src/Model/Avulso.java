@@ -6,6 +6,8 @@
 package Model;
 
 //import dao.ClienteDao;
+import dao.ClienteDao;
+import java.util.List;
 import javax.persistence.DiscriminatorValue;
 
 //import dao.AvulsoDao;
@@ -21,4 +23,10 @@ import javax.persistence.PrimaryKeyJoinColumn;
 //@PrimaryKeyJoinColumn(name="idCliente")
 public class Avulso extends Cliente {
  
+    
+    @Override
+    public List<Cliente> Lista() {
+        ClienteDao banco = new ClienteDao();
+        return banco.ListaAvulso();
+    }
 }

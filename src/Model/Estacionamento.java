@@ -13,6 +13,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 /**
@@ -33,8 +34,8 @@ public class Estacionamento {
     private String cidade;
     private String estado;
     private int telefone;
-    @OneToMany(cascade = CascadeType.ALL)
-// @JoinTable(name="COUNTRY_STATE",joinColumns={@JoinColumn(name="Country_Name")},inverseJoinColumns={@JoinColumn(name="State_Name")})  
+    @OneToMany(cascade = CascadeType.ALL)    
+    @JoinColumn(name="ESTACIONAMENTO_CNPJ")
     private Collection<Vaga> vagas = new ArrayList<Vaga>();
  
     
@@ -148,7 +149,9 @@ public class Estacionamento {
     }
 
     public List<Estacionamento> Lista() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+            EstacionamentoDao banco = new EstacionamentoDao();
+            return banco.Lista();
     }
 
     /**
