@@ -404,7 +404,7 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
          * retorna um true/false se for inserido ,se responder true, mostramos uma alerta de sucesso.
          */
         if (Incluir.adiciona(variaveis)) {
-            JOptionPane.showMessageDialog(null, "Salvado!");
+            JOptionPane.showMessageDialog(null, "Registro salvo com sucesso.");
         }
 
 

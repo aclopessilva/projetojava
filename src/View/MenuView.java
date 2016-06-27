@@ -46,6 +46,7 @@ public class MenuView extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Bem-vindo, Operador");
 
         jLabel3.setText("Navegue através das opções acima para realizar uma ação");
@@ -68,7 +69,7 @@ public class MenuView extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(180, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -82,9 +83,9 @@ public class MenuView extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Cadastro");
+        jMenu1.setText("Cadastrar");
 
-        jmMensalista.setText("Cliente");
+        jmMensalista.setText("Novo Cliente");
         jmMensalista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmMensalistaActionPerformed(evt);
@@ -92,7 +93,7 @@ public class MenuView extends javax.swing.JFrame {
         });
         jMenu1.add(jmMensalista);
 
-        jmOperador.setText("Operador");
+        jmOperador.setText("Novo Operador");
         jmOperador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmOperadorActionPerformed(evt);
