@@ -55,8 +55,7 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jrbDinheiro = new javax.swing.JRadioButton();
         jrbCartao = new javax.swing.JRadioButton();
-        jLabel5 = new javax.swing.JLabel();
-        jtCalcula = new javax.swing.JButton();
+        jtCalcular = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jbLimpar = new javax.swing.JButton();
         jbGravar = new javax.swing.JButton();
@@ -112,6 +111,11 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
         jLabel8.setText("Total:");
 
         jtTotal.setText("0");
+        jtTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtTotalActionPerformed(evt);
+            }
+        });
 
         try {
             jtHrEntrada.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
@@ -153,12 +157,10 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("Calcular Valor:");
-
-        jtCalcula.setText("Calcular");
-        jtCalcula.addActionListener(new java.awt.event.ActionListener() {
+        jtCalcular.setText("Calcular");
+        jtCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtCalculaActionPerformed(evt);
+                jtCalcularActionPerformed(evt);
             }
         });
 
@@ -169,6 +171,10 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
             .addGroup(jPAvulsoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPAvulsoLayout.createSequentialGroup()
+                        .addComponent(jrbDinheiro)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPAvulsoLayout.createSequentialGroup()
                         .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPAvulsoLayout.createSequentialGroup()
@@ -190,13 +196,9 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
                             .addComponent(jtHrEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(33, 33, 33)
                         .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPAvulsoLayout.createSequentialGroup()
-                                .addComponent(jtHrSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(140, 140, 140)
-                                .addComponent(jtCalcula))
+                            .addComponent(jtHrSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2)))
                     .addComponent(jLabel10)
-                    .addComponent(jrbDinheiro)
                     .addComponent(jrbCartao)
                     .addGroup(jPAvulsoLayout.createSequentialGroup()
                         .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -209,14 +211,14 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
                                 .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7)
                                     .addComponent(jtMulta, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPAvulsoLayout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(112, 112, 112)))
-                .addGap(0, 12, Short.MAX_VALUE))
+                            .addGroup(jPAvulsoLayout.createSequentialGroup()
+                                .addGap(7, 7, 7)
+                                .addComponent(jLabel8))
+                            .addGroup(jPAvulsoLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jtCalcular)))))
+                .addContainerGap())
         );
         jPAvulsoLayout.setVerticalGroup(
             jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -244,31 +246,28 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
                     .addGroup(jPAvulsoLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtHrSaida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPAvulsoLayout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jtHrSaida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
-                            .addComponent(jtCalcula))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtMulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtCalcular)))
+                    .addComponent(jLabel7))
+                .addGap(24, 24, 24)
                 .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPAvulsoLayout.createSequentialGroup()
-                            .addComponent(jLabel6)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jtMulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(jLabel7))
-                    .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPAvulsoLayout.createSequentialGroup()
-                            .addGap(23, 23, 23)
-                            .addComponent(jtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel8)))
-                .addGap(26, 26, 26)
-                .addComponent(jLabel4)
+                    .addGroup(jPAvulsoLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10))
+                    .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jrbDinheiro)
+                .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jrbDinheiro)
+                    .addComponent(jtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jrbCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
@@ -364,7 +363,7 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPAvulso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 8, Short.MAX_VALUE)))
+                        .addGap(0, 64, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -487,10 +486,6 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jrbCartaoActionPerformed
 
-    private void jtCalculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtCalculaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtCalculaActionPerformed
-
     private void jtHrEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtHrEntradaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtHrEntradaActionPerformed
@@ -503,6 +498,19 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jtTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtTotalActionPerformed
+        
+        
+    }//GEN-LAST:event_jtTotalActionPerformed
+
+    private void jtCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtCalcularActionPerformed
+        int x, y, w;
+        x = Integer.parseInt(jtValor.getText());
+        y = Integer.parseInt(jtMulta.getText());
+        w = x + y;
+        jtTotal.setText(""+w);
+    }//GEN-LAST:event_jtCalcularActionPerformed
 
     /**
      * @param args the command line arguments
@@ -550,7 +558,6 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -565,7 +572,7 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
     private javax.swing.JMenu jmMensalista;
     private javax.swing.JRadioButton jrbCartao;
     private javax.swing.JRadioButton jrbDinheiro;
-    private javax.swing.JButton jtCalcula;
+    private javax.swing.JButton jtCalcular;
     private javax.swing.JTextField jtCliente;
     private javax.swing.JFormattedTextField jtHrEntrada;
     private javax.swing.JFormattedTextField jtHrSaida;
