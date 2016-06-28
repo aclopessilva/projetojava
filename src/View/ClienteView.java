@@ -46,10 +46,6 @@ public class ClienteView extends javax.swing.JFrame {
         jrbAtivo = new javax.swing.JRadioButton();
         jrbDesativar = new javax.swing.JRadioButton();
         jPanel1 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jtHrInicio = new javax.swing.JTextField();
-        jtHrFim = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
         jtCpf = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jtRg = new javax.swing.JTextField();
@@ -66,8 +62,6 @@ public class ClienteView extends javax.swing.JFrame {
         jbLimpar2 = new javax.swing.JButton();
         jbGravar2 = new javax.swing.JButton();
         jbCancelar2 = new javax.swing.JButton();
-        jbAlterar2 = new javax.swing.JButton();
-        jbExcluir2 = new javax.swing.JButton();
         jbVoltar2 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
 
@@ -133,42 +127,26 @@ public class ClienteView extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Mensalista", jPanel2);
 
-        jLabel10.setText("Hora de Entrada: ");
-
-        jLabel11.setText("Hora Saída:");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtHrFim, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtHrInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(249, Short.MAX_VALUE))
+            .addGap(0, 494, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtHrInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtHrFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
-                .addContainerGap(128, Short.MAX_VALUE))
+            .addGap(0, 134, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Avulso", jPanel1);
 
         jLabel4.setText("RG:");
+
+        jtNascimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtNascimentoActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Nascimento:");
 
@@ -204,20 +182,6 @@ public class ClienteView extends javax.swing.JFrame {
             }
         });
 
-        jbAlterar2.setText("Alterar");
-        jbAlterar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbAlterar2ActionPerformed(evt);
-            }
-        });
-
-        jbExcluir2.setText("Excluir");
-        jbExcluir2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbExcluir2ActionPerformed(evt);
-            }
-        });
-
         jbVoltar2.setText("Voltar");
         jbVoltar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -231,18 +195,14 @@ public class ClienteView extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jbLimpar2)
-                .addGap(2, 2, 2)
-                .addComponent(jbGravar2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbCancelar2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbVoltar2)
-                .addGap(18, 18, 18)
-                .addComponent(jbAlterar2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jbExcluir2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbLimpar2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbGravar2)
+                .addGap(44, 44, 44))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,10 +212,8 @@ public class ClienteView extends javax.swing.JFrame {
                     .addComponent(jbLimpar2)
                     .addComponent(jbGravar2)
                     .addComponent(jbCancelar2)
-                    .addComponent(jbAlterar2)
-                    .addComponent(jbExcluir2)
                     .addComponent(jbVoltar2))
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGap(0, 22, Short.MAX_VALUE))
         );
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -306,9 +264,9 @@ public class ClienteView extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(26, 26, 26)
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -329,9 +287,10 @@ public class ClienteView extends javax.swing.JFrame {
                     .addComponent(jtRg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -345,8 +304,8 @@ public class ClienteView extends javax.swing.JFrame {
         //jtStatus.setText("");
         jtRg.setText("");
         jtCpf.setText("");
-        jtHrInicio.setText("");
-        jtHrFim.setText("");
+        //jtHrInicio.setText("");
+        //jtHrFim.setText("");
     }//GEN-LAST:event_jbLimpar2ActionPerformed
     /**
      * Funcao para obter o valor selecionado em um buttonGroup
@@ -372,7 +331,7 @@ public class ClienteView extends javax.swing.JFrame {
         //verificando se campos estão vazios
         if ((jtNome.getText().isEmpty()) || (jtEndereco.getText().isEmpty()) || (jtTelefone.getText().isEmpty())
                 || (jtNascimento.getText().isEmpty()) || (jtRg.getText().isEmpty()) || (jtCpf.getText().isEmpty())) {
-            JOptionPane.showMessageDialog(null, "Os campos não podem retornar" + "vazios");
+            JOptionPane.showMessageDialog(null, "Os campos não podem retornar" + " vazios");
         } else {
             variaveis.add(jtNome.getText());
             variaveis.add(jtEndereco.getText());
@@ -399,7 +358,7 @@ public class ClienteView extends javax.swing.JFrame {
                 variaveis.add("mensalista");
                
                     if(jtPeriodo.getText().isEmpty() || jtFormaPagamento.getText().isEmpty()){
-                    JOptionPane.showMessageDialog(null, "Os campos não podem retornar" + "vazios");
+                    JOptionPane.showMessageDialog(null, "Os campos não podem retornar" + " vazios");
                     }else{
                         variaveis.add(jtPeriodo.getText());
                         if( jrbEspera.isSelected()){
@@ -451,18 +410,14 @@ public class ClienteView extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jbCancelar2ActionPerformed
 
-    private void jbAlterar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterar2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbAlterar2ActionPerformed
-
-    private void jbExcluir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluir2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbExcluir2ActionPerformed
-
     private void jbVoltar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVoltar2ActionPerformed
         MenuView voltar = new MenuView();
         voltar.setVisible(true);
     }//GEN-LAST:event_jbVoltar2ActionPerformed
+
+    private void jtNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNascimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtNascimentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -502,8 +457,6 @@ public class ClienteView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -516,9 +469,7 @@ public class ClienteView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JButton jbAlterar2;
     private javax.swing.JButton jbCancelar2;
-    private javax.swing.JButton jbExcluir2;
     private javax.swing.JButton jbGravar2;
     private javax.swing.JButton jbLimpar2;
     private javax.swing.JButton jbVoltar2;
@@ -528,8 +479,6 @@ public class ClienteView extends javax.swing.JFrame {
     private javax.swing.JTextField jtCpf;
     private javax.swing.JTextField jtEndereco;
     private javax.swing.JTextField jtFormaPagamento;
-    private javax.swing.JTextField jtHrFim;
-    private javax.swing.JTextField jtHrInicio;
     private javax.swing.JTextField jtNascimento;
     private javax.swing.JTextField jtNome;
     private javax.swing.JTextField jtPeriodo;

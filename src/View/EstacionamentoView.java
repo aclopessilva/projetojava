@@ -64,10 +64,7 @@ public class EstacionamentoView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jbGravar = new javax.swing.JButton();
         jbCancelar = new javax.swing.JButton();
-        jbAlterar = new javax.swing.JButton();
         jbVoltar = new javax.swing.JButton();
-        jbExcluir = new javax.swing.JButton();
-        jtConsulta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,6 +84,7 @@ public class EstacionamentoView extends javax.swing.JFrame {
 
         jLabel9.setText("Quantidade de vagas:");
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel10.setText("Inserção - ESTACIONAMENTO");
 
         jtNomeFantasia.addActionListener(new java.awt.event.ActionListener() {
@@ -114,31 +112,10 @@ public class EstacionamentoView extends javax.swing.JFrame {
             }
         });
 
-        jbAlterar.setText("Alterar");
-        jbAlterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbAlterarActionPerformed(evt);
-            }
-        });
-
         jbVoltar.setText("Voltar");
         jbVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbVoltarActionPerformed(evt);
-            }
-        });
-
-        jbExcluir.setText("Excluir");
-        jbExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbExcluirActionPerformed(evt);
-            }
-        });
-
-        jtConsulta.setText("Consulta");
-        jtConsulta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtConsultaActionPerformed(evt);
             }
         });
 
@@ -147,19 +124,13 @@ public class EstacionamentoView extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jbGravar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(20, 20, 20)
                 .addComponent(jbCancelar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbAlterar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbVoltar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jbExcluir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jtConsulta)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
+                .addComponent(jbGravar)
+                .addGap(48, 48, 48))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,10 +139,7 @@ public class EstacionamentoView extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbGravar)
                     .addComponent(jbCancelar)
-                    .addComponent(jbAlterar)
-                    .addComponent(jbVoltar)
-                    .addComponent(jbExcluir)
-                    .addComponent(jtConsulta))
+                    .addComponent(jbVoltar))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -181,50 +149,47 @@ public class EstacionamentoView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel10)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel11)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel4))
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jtNomeFantasia, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+                                    .addComponent(jtRazaoSocial, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jtEndereco, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jtTelefone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                                    .addComponent(jtEstado, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jtCidade, javax.swing.GroupLayout.Alignment.LEADING))))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel9)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jtQtdeVagas, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                            .addGap(114, 114, 114)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addComponent(jLabel10))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel4))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jtNomeFantasia, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jtRazaoSocial, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jtEndereco, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jtTelefone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
-                                        .addComponent(jtEstado, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jtCidade, javax.swing.GroupLayout.Alignment.LEADING))))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(jLabel9)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jtQtdeVagas))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel7)
-                                        .addComponent(jLabel8))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jtInscEstadual, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jtCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addContainerGap(227, Short.MAX_VALUE))
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jtInscEstadual, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                            .addComponent(jtCnpj))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(13, 13, 13)
+                .addContainerGap()
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -314,106 +279,10 @@ public class EstacionamentoView extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jbCancelarActionPerformed
 
-    private void jbAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarActionPerformed
-     ArrayList<String> variaveis = new ArrayList<String>();
-        if((jtRazaoSocial.getText().isEmpty()) || (jtNomeFantasia.getText().isEmpty()) || (jtEndereco.getText().isEmpty()) || 
-                  (jtTelefone.getText().isEmpty()) || (jtCidade.getText().isEmpty()) || (jtEstado.getText().isEmpty()) || 
-                  (jtInscEstadual.getText().isEmpty()) || (jtCnpj.getText().isEmpty()) || (jtQtdeVagas.getText().isEmpty())){
-                   JOptionPane.showMessageDialog(null, "Os campos não podem retornar" + "vazios");
-        }else{
-                variaveis.add(jtRazaoSocial.getText());
-                variaveis.add(jtRazaoSocial.getText());
-                variaveis.add(jtNomeFantasia.getText());
-                variaveis.add(jtEndereco.getText());
-                variaveis.add(jtTelefone.getText());
-                variaveis.add(jtCidade.getText());
-                variaveis.add(jtEstado.getText());
-                variaveis.add(jtInscEstadual.getText());
-                variaveis.add(jtCnpj.getText());
-                variaveis.add(jtQtdeVagas.getText());
-
-
-                EstacionamentoControl altera= new EstacionamentoControl();
-                Estacionamento x = new Estacionamento();
-                x = altera.atualiza(variaveis);
-                jtRazaoSocial.setText(x.getRazaoSocial());
-                jtNomeFantasia.setText(x.getNomeFantasia());
-                jtEndereco.setText(x.getEndereco());
-                jtTelefone.setText(String.valueOf(x.getTelefone()));
-                jtCidade.setText(x.getCidade());
-                jtEstado.setText(x.getEstado());
-                jtInscEstadual.setText(String.valueOf(x.getInscricaoEstadual()));
-                jtCnpj.setText(String.valueOf(x.getCnpj()));
-                jtQtdeVagas.setText(String.valueOf(x.getQntdVagas()));
-        }
-
-    }//GEN-LAST:event_jbAlterarActionPerformed
-
     private void jbVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVoltarActionPerformed
         MenuView voltar = new MenuView();
         voltar.setVisible(true);
     }//GEN-LAST:event_jbVoltarActionPerformed
-
-    private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
-      ArrayList<String> variaveis = new ArrayList<String>();
-if(jtInscEstadual.getText().isEmpty()){
-	JOptionPane.showMessageDialog(null, "O campo Inscrição estadual precisa está preenchido");
-}else{
-
-  	variaveis.add(jtRazaoSocial.getText());
-        variaveis.add(jtNomeFantasia.getText());
-        variaveis.add(jtEndereco.getText());
-        variaveis.add(jtTelefone.getText());
-        variaveis.add(jtCidade.getText());
-        variaveis.add(jtEstado.getText());
-        variaveis.add(jtInscEstadual.getText());
-        variaveis.add(jtCnpj.getText());
-        variaveis.add(jtQtdeVagas.getText());
-	
-
-	EstacionamentoControl excluir = new EstacionamentoControl();
-	if(excluir.deleta(variaveis)){
-		JOptionPane.showMessageDialog(null, "Estacionamento excluido com sucesso!!");
-
-	}
-}
-
-    }//GEN-LAST:event_jbExcluirActionPerformed
-
-    private void jtConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtConsultaActionPerformed
-        
-        
-        ArrayList<String> variaveis = new ArrayList<String>();
-    if(jtNomeFantasia.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "O campo nome fantasia precisa está preenchido");
-    }else{
-            variaveis.add(jtRazaoSocial.getText());
-            variaveis.add(jtRazaoSocial.getText());
-            variaveis.add(jtNomeFantasia.getText());
-            variaveis.add(jtEndereco.getText());
-            variaveis.add(jtTelefone.getText());
-            variaveis.add(jtCidade.getText());
-            variaveis.add(jtEstado.getText());
-            variaveis.add(jtInscEstadual.getText());
-            variaveis.add(jtCnpj.getText());
-            variaveis.add(jtQtdeVagas.getText());
-
-            EstacionamentoControl cons = new EstacionamentoControl();
-            Estacionamento x = new Estacionamento();
-            x = cons.consulta(variaveis);
-            jtRazaoSocial.setText(x.getRazaoSocial());
-            jtNomeFantasia.setText(x.getNomeFantasia());
-            jtEndereco.setText(x.getEndereco());
-            jtTelefone.setText(String.valueOf(x.getTelefone()));
-                jtCidade.setText(x.getCidade());
-                jtEstado.setText(x.getEstado());
-                jtInscEstadual.setText(String.valueOf(x.getInscricaoEstadual()));
-                jtCnpj.setText(String.valueOf(x.getCnpj()));
-                 jtQtdeVagas.setText(String.valueOf(x.getQntdVagas()));
-}
-        
-        
-    }//GEN-LAST:event_jtConsultaActionPerformed
 
     private void jtNomeFantasiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNomeFantasiaActionPerformed
         // TODO add your handling code here:
@@ -466,14 +335,11 @@ if(jtInscEstadual.getText().isEmpty()){
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton jbAlterar;
     private javax.swing.JButton jbCancelar;
-    private javax.swing.JButton jbExcluir;
     private javax.swing.JButton jbGravar;
     private javax.swing.JButton jbVoltar;
     private javax.swing.JTextField jtCidade;
     private javax.swing.JTextField jtCnpj;
-    private javax.swing.JButton jtConsulta;
     private javax.swing.JTextField jtEndereco;
     private javax.swing.JTextField jtEstado;
     private javax.swing.JTextField jtInscEstadual;

@@ -33,10 +33,7 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
-        buttonGroup3 = new javax.swing.ButtonGroup();
-        buttonGroup4 = new javax.swing.ButtonGroup();
+        buttonGroup5 = new javax.swing.ButtonGroup();
         jPAvulso = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -58,16 +55,17 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jrbDinheiro = new javax.swing.JRadioButton();
         jrbCartao = new javax.swing.JRadioButton();
+        jLabel5 = new javax.swing.JLabel();
+        jtCalcula = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jbLimpar = new javax.swing.JButton();
         jbGravar = new javax.swing.JButton();
         jbVoltar = new javax.swing.JButton();
-        jbImprimir = new javax.swing.JButton();
-        jbAlterar = new javax.swing.JButton();
-        jbExcluir = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmMensalista = new javax.swing.JMenu();
         jmCadastrar = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -120,6 +118,11 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jtHrEntrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtHrEntradaActionPerformed(evt);
+            }
+        });
 
         try {
             jtHrSaida.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
@@ -134,6 +137,7 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
 
         jLabel4.setText("Forma de Pagamento:");
 
+        buttonGroup5.add(jrbDinheiro);
         jrbDinheiro.setText("Dinheiro");
         jrbDinheiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,10 +145,20 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup5.add(jrbCartao);
         jrbCartao.setText("Cartão");
         jrbCartao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jrbCartaoActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Calcular Valor:");
+
+        jtCalcula.setText("Calcular");
+        jtCalcula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtCalculaActionPerformed(evt);
             }
         });
 
@@ -155,51 +169,54 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
             .addGroup(jPAvulsoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPAvulsoLayout.createSequentialGroup()
+                    .addGroup(jPAvulsoLayout.createSequentialGroup()
+                        .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPAvulsoLayout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addGap(112, 112, 112))
+                            .addGroup(jPAvulsoLayout.createSequentialGroup()
+                                .addComponent(jtCliente)
+                                .addGap(10, 10, 10)))
                         .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jrbDinheiro)
-                            .addComponent(jrbCartao)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel4))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jtVaga, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12))
+                        .addGap(98, 98, 98)
+                        .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)))
                     .addGroup(jPAvulsoLayout.createSequentialGroup()
                         .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jtHrEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33)
+                        .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPAvulsoLayout.createSequentialGroup()
-                                .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPAvulsoLayout.createSequentialGroup()
-                                        .addComponent(jLabel14)
-                                        .addGap(112, 112, 112))
-                                    .addGroup(jPAvulsoLayout.createSequentialGroup()
-                                        .addComponent(jtCliente)
-                                        .addGap(10, 10, 10)))
-                                .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jtVaga, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel12))
-                                .addGap(98, 98, 98)
-                                .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3)))
-                            .addGroup(jPAvulsoLayout.createSequentialGroup()
-                                .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jtHrEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(60, 60, 60)
-                                .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jtHrSaida)))
-                            .addGroup(jPAvulsoLayout.createSequentialGroup()
+                                .addComponent(jtHrSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(140, 140, 140)
+                                .addComponent(jtCalcula))
+                            .addComponent(jLabel2)))
+                    .addComponent(jLabel10)
+                    .addComponent(jrbDinheiro)
+                    .addComponent(jrbCartao)
+                    .addGroup(jPAvulsoLayout.createSequentialGroup()
+                        .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPAvulsoLayout.createSequentialGroup()
                                 .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel6)
                                     .addComponent(jtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7)
-                                    .addComponent(jtMulta, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 12, Short.MAX_VALUE))))
+                                    .addComponent(jtMulta, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPAvulsoLayout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(112, 112, 112)))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
         jPAvulsoLayout.setVerticalGroup(
             jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,7 +244,10 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
                     .addGroup(jPAvulsoLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtHrSaida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jtHrSaida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
+                            .addComponent(jtCalcula))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPAvulsoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,7 +270,7 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jrbDinheiro)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jrbCartao)
+                .addComponent(jrbCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
         );
 
@@ -278,21 +298,12 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
             }
         });
 
-        jbImprimir.setText("Imprimir");
-        jbImprimir.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Cancelar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbImprimirActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-
-        jbAlterar.setText("Alterar");
-        jbAlterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbAlterarActionPerformed(evt);
-            }
-        });
-
-        jbExcluir.setText("Excluir");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -300,18 +311,14 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbVoltar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jbLimpar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbGravar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbImprimir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbVoltar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbAlterar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbExcluir)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,9 +328,7 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
                     .addComponent(jbLimpar)
                     .addComponent(jbGravar)
                     .addComponent(jbVoltar)
-                    .addComponent(jbImprimir)
-                    .addComponent(jbAlterar)
-                    .addComponent(jbExcluir))
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -336,6 +341,14 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
             }
         });
         jmMensalista.add(jmCadastrar);
+
+        jMenuItem1.setText("Veículo");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jmMensalista.add(jMenuItem1);
 
         jMenuBar1.add(jmMensalista);
 
@@ -351,7 +364,7 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPAvulso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 8, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -377,49 +390,71 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
         mn.setVisible(true);
     }//GEN-LAST:event_jbVoltarActionPerformed
 
-    private void jbGravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGravarActionPerformed
+    
+    public String getSelectedButtonText(ButtonGroup buttonGroup) {
+        for (Enumeration<AbstractButton> buttons = buttonGroup.getElements(); buttons.hasMoreElements();) {
+            AbstractButton button = buttons.nextElement();
 
-        ArrayList<String> variaveis = new ArrayList<String>();
-        
-        /**
-         * Carregando valores 
-         */
-        variaveis.add(jtCliente.getText());
-        variaveis.add(jtVaga.getText());
-        variaveis.add(jtPlaca.getText());
-        variaveis.add(jtHrEntrada.getText());
-        variaveis.add(jtHrSaida.getText());
-        variaveis.add(jtValor.getText());
-        variaveis.add(jtMulta.getText());
-        variaveis.add(jtTotal.getText());
-
-        
-        /**
-         * chamando o metodo adiciona do ServicoAvulsoControl.
-         */
-        ServicoAvulsoControl Incluir = new ServicoAvulsoControl();
-        
-        /**
-         * Metodo adiciona recebe nossas variaveis e
-         * retorna um true/false se for inserido ,se responder true, mostramos uma alerta de sucesso.
-         */
-        if (Incluir.adiciona(variaveis)) {
-            JOptionPane.showMessageDialog(null, "Registro salvo com sucesso.");
+            if (button.isSelected()) {
+                return button.getText();
+            }
         }
 
+        return null;
+    }
+    
+    private void jbGravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGravarActionPerformed
 
+        if ((jtCliente.getText().isEmpty()) || (jtVaga.getText().isEmpty()) || (jtPlaca.getText().isEmpty())
+                || (jtHrEntrada.getText().isEmpty()) || (jtHrSaida.getText().isEmpty()) || (jtValor.getText().isEmpty())
+                || (jtMulta.getText().isEmpty()) || (jtTotal.getText().isEmpty()) || buttonGroup5.getSelection() == null) {
+            JOptionPane.showMessageDialog(null, "Os campos não podem retornar" + " vazios!");
+        }else{
+            ArrayList<String> variaveis = new ArrayList<String>();
+
+            /**
+             * Carregando valores 
+             */
+            variaveis.add(jtCliente.getText());
+            variaveis.add(jtVaga.getText());
+            variaveis.add(jtPlaca.getText());
+            variaveis.add(jtHrEntrada.getText());
+            variaveis.add(jtHrSaida.getText());
+            variaveis.add(jtValor.getText());
+            variaveis.add(jtMulta.getText());
+            variaveis.add(jtTotal.getText());
+            variaveis.add(getSelectedButtonText(buttonGroup5));
+
+            /**
+             * chamando o metodo adiciona do ServicoAvulsoControl.
+             */
+            ServicoAvulsoControl Incluir = new ServicoAvulsoControl();
+
+            /**
+             * Metodo adiciona recebe nossas variaveis e
+             * retorna um true/false se for inserido ,se responder true, mostramos uma alerta de sucesso.
+             */
+            if (Incluir.adiciona(variaveis)) {
+                JOptionPane.showMessageDialog(null, "Registro salvo com sucesso.");
+            }
+        }
+        
+        
     }//GEN-LAST:event_jbGravarActionPerformed
-
-    private void jbImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbImprimirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbImprimirActionPerformed
 
     private void jbLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimparActionPerformed
         //jcbLimpeza.setText("");
         //jcbPolimento.setText("");
+        jtCliente.setText("");
+        jtVaga.setText("");
         jtPlaca.setText("");
         jtHrEntrada.setText("");
         jtHrSaida.setText("");
+        jtPlaca.setText("");
+        jtValor.setText("");
+        jtMulta.setText("");
+        jtTotal.setText("");
+        buttonGroup5.clearSelection();
         //jCBoxTamanho.setToolTipText("");
 
     }//GEN-LAST:event_jbLimparActionPerformed
@@ -452,9 +487,22 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jrbCartaoActionPerformed
 
-    private void jbAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarActionPerformed
+    private void jtCalculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtCalculaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jbAlterarActionPerformed
+    }//GEN-LAST:event_jtCalculaActionPerformed
+
+    private void jtHrEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtHrEntradaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtHrEntradaActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        VeiculoView b = new VeiculoView();
+        b.setVisible(true);   
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -493,10 +541,8 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.ButtonGroup buttonGroup3;
-    private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.ButtonGroup buttonGroup5;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
@@ -504,22 +550,22 @@ public class ServicoAvulsoView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPAvulso;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton jbAlterar;
-    private javax.swing.JButton jbExcluir;
     private javax.swing.JButton jbGravar;
-    private javax.swing.JButton jbImprimir;
     private javax.swing.JButton jbLimpar;
     private javax.swing.JButton jbVoltar;
     private javax.swing.JMenuItem jmCadastrar;
     private javax.swing.JMenu jmMensalista;
     private javax.swing.JRadioButton jrbCartao;
     private javax.swing.JRadioButton jrbDinheiro;
+    private javax.swing.JButton jtCalcula;
     private javax.swing.JTextField jtCliente;
     private javax.swing.JFormattedTextField jtHrEntrada;
     private javax.swing.JFormattedTextField jtHrSaida;

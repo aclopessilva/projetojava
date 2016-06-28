@@ -58,6 +58,7 @@ public class ServicoAvulsoControl {
         this.variaveis.setValorServico(Integer.parseInt(vetor.get(5)));
         this.variaveis.setMulta(Double.parseDouble(vetor.get(6)));
         this.variaveis.setTotal(Double.parseDouble(vetor.get(7)));
+        this.variaveis.setFormaDePagamento( vetor.get(8) );
 
         System.out.println(this.variaveis);
 

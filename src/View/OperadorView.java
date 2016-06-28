@@ -50,8 +50,6 @@ public class OperadorView extends javax.swing.JFrame {
         jbLimpar = new javax.swing.JButton();
         jbGravar = new javax.swing.JButton();
         jbCancelar = new javax.swing.JButton();
-        jbAlterar = new javax.swing.JButton();
-        jbExcluir = new javax.swing.JButton();
         jbVoltar = new javax.swing.JButton();
         jrbGerente = new javax.swing.JRadioButton();
         jrbCaixa = new javax.swing.JRadioButton();
@@ -103,20 +101,6 @@ public class OperadorView extends javax.swing.JFrame {
             }
         });
 
-        jbAlterar.setText("Alterar");
-        jbAlterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbAlterarActionPerformed(evt);
-            }
-        });
-
-        jbExcluir.setText("Excluir");
-        jbExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbExcluirActionPerformed(evt);
-            }
-        });
-
         jbVoltar.setText("Voltar");
         jbVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,18 +114,14 @@ public class OperadorView extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jbLimpar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbGravar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbCancelar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbVoltar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbAlterar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbExcluir)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(128, 128, 128)
+                .addComponent(jbLimpar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jbGravar)
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,8 +131,6 @@ public class OperadorView extends javax.swing.JFrame {
                     .addComponent(jbLimpar)
                     .addComponent(jbGravar)
                     .addComponent(jbCancelar)
-                    .addComponent(jbAlterar)
-                    .addComponent(jbExcluir)
                     .addComponent(jbVoltar))
                 .addGap(0, 11, Short.MAX_VALUE))
         );
@@ -265,7 +243,7 @@ public class OperadorView extends javax.swing.JFrame {
                             .addComponent(jLabel7)
                             .addComponent(jtNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(6, 6, 6)
@@ -328,7 +306,8 @@ public class OperadorView extends javax.swing.JFrame {
         ArrayList<String> variaveis = new ArrayList<String>();
         //verificando se campos estão vazios
         if ((jtNome.getText().isEmpty()) || (jtEndereco.getText().isEmpty()) || (jtTelefone.getText().isEmpty())
-                || (jtNascimento.getText().isEmpty()) || (jtRg.getText().isEmpty()) || (jtCpf.getText().isEmpty())) {
+                || (jtNascimento.getText().isEmpty()) || (jtRg.getText().isEmpty()) || (jtCpf.getText().isEmpty()) ||
+                (buttonGroup1.getSelection() == null) || (buttonGroup2.getSelection() == null)) {
             JOptionPane.showMessageDialog(null, "Os campos não podem retornar" + "vazios");
         } else {
             variaveis.add(jtNome.getText());
@@ -348,23 +327,15 @@ public class OperadorView extends javax.swing.JFrame {
                         + "\nTelefone: " + jtTelefone.getText()
                         + "\nCPF: " + jtCpf.getText()
                         + "\nRG: " + jtRg.getText()
-                        + "\nData de Nascimento: " + jtNascimento.getText());
-                /*  "\nFunção: "+Sfuncao+
-                 "\nPeríodo: "+Speriodo*/
+                        + "\nData de Nascimento: " + jtNascimento.getText()
+                        + "\nTurno: " + getSelectedButtonText(buttonGroup1)
+                        + "\nFunção: " + getSelectedButtonText(buttonGroup2));
             }
        }    }//GEN-LAST:event_jbGravarActionPerformed
 
     private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
         dispose();
     }//GEN-LAST:event_jbCancelarActionPerformed
-
-    private void jbAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbAlterarActionPerformed
-
-    private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbExcluirActionPerformed
 
     private void jbVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVoltarActionPerformed
         MenuView voltar = new MenuView();
@@ -428,9 +399,7 @@ public class OperadorView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton jbAlterar;
     private javax.swing.JButton jbCancelar;
-    private javax.swing.JButton jbExcluir;
     private javax.swing.JButton jbGravar;
     private javax.swing.JButton jbLimpar;
     private javax.swing.JButton jbVoltar;
